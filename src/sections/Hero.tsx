@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "../components/common/Button";
-import { LightLayer, DarkLayer } from "../assets/icons";
+import Container from "../components/common/Container";
+import { LightLayer, DarkLayer, ArrowIcon } from "../assets/icons";
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative z-0 pt-28 md:pt-32 pb-20 px-4 lg:pt-48 md:pb-32 overflow-hidden">
+    <section className="relative z-0 pt-28 md:pt-32 pb-20 lg:pt-48 md:pb-32 overflow-hidden">
       {/* Background SVGs for Premium Atmosphere */}
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
         {/* Left Atmospheric Glow */}
@@ -17,7 +18,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 text-center">
+      <Container className="relative z-10 text-center">
         {/* Main Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-[45px] lg:text-[56px] font-semibold mb-6 tracking-tight leading-[1.1] text-white">
           Turn Email & SMS Into Your Most <br />
@@ -65,17 +66,7 @@ const Hero: React.FC = () => {
             className="w-full sm:w-auto px-[32px]! py-[16px]! rounded-[14px]! bg-[linear-gradient(90deg,#793FEE_0%,#26FDFE_106.88%)]! gap-[7.734px]! min-h-0! shadow-[0_0_20px_rgba(31,217,249,0.3)] hover:shadow-[0_0_30px_rgba(31,217,249,0.5)] transition-shadow duration-300 text-[16px]! font-semibold! leading-[24px]! text-white! text-center!"
           >
             Book a Free Strategy Call
-            <svg
-              className="w-5 h-5 ml-1 hidden sm:block"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <ArrowIcon className="w-5 h-5 ml-1 hidden md:block" />
           </Button>
           <Button
             variant="secondary"
@@ -84,7 +75,7 @@ const Hero: React.FC = () => {
             View Case Studies
           </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

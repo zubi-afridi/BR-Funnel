@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-100 bg-[#0B0F1A]/80 backdrop-blur-xl transition-all duration-300 border-b border-[#B9B9B9]">
-      <Container className="flex justify-between items-center h-20 ">
+      <Container className="flex justify-between items-center h-16 md:h-18 lg:h-20 xl:h-24 ">
         {/* Logo Section */}
 
         <div className="shrink-0">
@@ -39,10 +39,10 @@ const Navbar = () => {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="text-[15px] lg:text-[18px] font-medium text-[#E4E4E4]! leading-[24px] hover:text-white! transition-all duration-200 relative group"
+                  className="text-sm lg:text-lg font-medium text-[#E4E4E4]! leading-[24px] hover:text-white transition-all duration-200 relative group"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-[#793FEE] to-[#26FDFE] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute rounded -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-[#793FEE] to-[#26FDFE] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
@@ -72,7 +72,7 @@ const Navbar = () => {
       <Drawer
         title={
           <div className="flex justify-between items-center w-full px-2">
-            <span className="text-xl font-semibold tracking-wider text-gradient-blue">
+            <span className="text-[24px] font-semibold tracking-wider text-gradient-blue">
               BR FUNNELS
             </span>
           </div>

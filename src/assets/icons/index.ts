@@ -1,3 +1,16 @@
 export { default as PhoneIcon } from "./navbar/phone-icon.svg?react";
 export { default as LightLayer } from "./common/ligth-layer.svg?react";
 export { default as DarkLayer } from "./common/dark-layer.svg?react";
+export { default as IntegrationIcon } from "./Integration-section/integration-icon.svg?react";
+export { default as ShopifyIcon } from "./Integration-section/shopify.svg?react";
+export { default as CampaignIcon } from "./Integration-section/compaign.svg?react";
+export { default as MailchimpIcon } from "./Integration-section/mailchimp.svg?react";
+export { default as HubspotIcon } from "./Integration-section/hubspot.svg?react";
+export { default as ZapierIcon } from "./Integration-section/zapier.svg?react";
+export { default as KlaviyoIcon } from "./Integration-section/klaviyo.svg?react";
+export { default as ArrowIcon } from "./common/right-arrow.svg?react";
+export { default as EmailIcon } from "./portfolio-section/email-icon.svg?react";
+export { default as progressIcon } from "./common/progress-icon.svg?react";
+export { default as UserIcon } from "./common/user.svg?react";
+export { default as DollarIcon } from "./performance/dollar.svg?react";
+export { default as Email } from "./performance/email.svg?react";

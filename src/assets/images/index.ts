@@ -1,1 +1,1 @@
-export { default as Logo } from "../icons/navbar/logo.svg";
+export { default as Card } from "../images/portfolio/card.png";
