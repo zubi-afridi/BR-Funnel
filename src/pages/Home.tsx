@@ -1,35 +1,30 @@
-
 import MainLayout from "../layouts/MainLayout";
 import Hero from "../sections/Hero";
-// import BrandLogos from "../sections/BrandLogos";
-// import RevenueFramework from "../sections/RevenueFramework";
-// import Services from "../sections/Services";
-// import SuccessStories from "../sections/SuccessStories";
-// import PerformanceStats from "../sections/PerformanceStats";
-// import VideoTestimonials from "../sections/VideoTestimonials";
 import PortfolioShowcase from "../sections/PortfolioShowcase";
-
 import Integrations from "../sections/Integrations";
 import PerformanceStats from "../sections/PerformanceStats";
 import BrandLogos from "../sections/BrandLogos";
-
-
+import Guarantee from "../sections/Guarantee";
+import Services from "../sections/Services";
+import SuccessStories from "../sections/SuccessStories";
 const Home = () => {
   return (
     <MainLayout>
-      <Hero />
-      <Integrations />
-      <PortfolioShowcase />
-      <PerformanceStats />
-      <BrandLogos />
-      {/* 
-      <RevenueFramework />
-      <Services />
-      <SuccessStories />
-      <VideoTestimonials />
-      <MobileOptimized />
-      <Guarantee />
-      <CTASection /> */}
+      <div className="flex flex-col gap-[40px] md:gap-[50px] lg:gap-[75px]">
+        <Hero />
+        <Integrations />
+        <PortfolioShowcase />
+        <PerformanceStats />
+        <BrandLogos />
+        <Guarantee />
+        <Services />
+        <SuccessStories />
+        {/* 
+        <RevenueFramework />
+        <VideoTestimonials />
+        <MobileOptimized />
+        <CTASection /> */}
+      </div>
     </MainLayout>
   );
 };

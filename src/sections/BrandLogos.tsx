@@ -1,24 +1,36 @@
 import React from "react";
-import { LightLayer, DarkLayer } from "../assets";
+import {
+  LightLayer,
+  DarkLayer,
+  AuriasLogo,
+  WallifyLogo,
+  BarelineLogo,
+  EonsLogo,
+  MoigoLogo,
+  TreeLogo,
+  NurseryLogo,
+  ShunraiLogo,
+  RadeantLogo,
+  ArrowIcon,
+} from "../assets";
 import { Button } from "antd";
 
 type BrandItem = {
   id: number;
   name: string;
-  logo?: string;
-  alt?: string;
+  Logo: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
 const brands: BrandItem[] = [
-  { id: 1, name: "TN Nursery", logo: "/brands/tn-nursery.svg", alt: "TN Nursery" },
-  { id: 2, name: "Brand 2", logo: "/brands/brand-2.svg", alt: "Brand 2" },
-  { id: 3, name: "AEons", logo: "/brands/aeons.svg", alt: "AEons" },
-  { id: 4, name: "Auria's", logo: "/brands/aurias.svg", alt: "Auria's" },
-  { id: 5, name: "Brand 5", logo: "/brands/brand-5.svg", alt: "Brand 5" },
-  { id: 6, name: "Wallify", logo: "/brands/wallify.svg", alt: "Wallify" },
-  { id: 7, name: "MOIG", logo: "/brands/moig.svg", alt: "MOIG" },
-  { id: 8, name: "Brand 8", logo: "/brands/brand-8.svg", alt: "Brand 8" },
-  { id: 9, name: "Shunrai Knives", logo: "/brands/shunrai-knives.svg", alt: "Shunrai Knives" },
+  { id: 1, name: "TN Nursery", Logo: NurseryLogo },
+  { id: 2, name: "TN Nursery (Tree)", Logo: TreeLogo },
+  { id: 3, name: "AEons", Logo: EonsLogo },
+  { id: 4, name: "Auria's", Logo: AuriasLogo },
+  { id: 5, name: "Bareline", Logo: BarelineLogo },
+  { id: 6, name: "Wallify", Logo: WallifyLogo },
+  { id: 7, name: "MOIG", Logo: MoigoLogo },
+  { id: 8, name: "Radéant", Logo: RadeantLogo },
+  { id: 9, name: "Shunrai Knives", Logo: ShunraiLogo },
 ];
 
 const TrustedBrandsSection: React.FC = () => {
@@ -56,10 +68,9 @@ const TrustedBrandsSection: React.FC = () => {
             <h2
               className="
                 text-white font-semibold tracking-[-0.02em]
-                text-[30px] leading-[36px]
-                sm:text-[34px] sm:leading-[40px]
-                md:text-[38px] md:leading-[44px]
-                lg:text-[46px] lg:leading-[55px]
+                sm:text-2xl lg:text-[32px] text-xl
+                
+                
               "
             >
               Trusted by Leading Brands
@@ -67,22 +78,19 @@ const TrustedBrandsSection: React.FC = () => {
 
             <p
               className="
-                mx-auto mt-2 max-w-[520px]
-                font-medium text-[#B9B9B9]
-                text-[14px] leading-[20px]
-                sm:text-[15px] sm:leading-[22px]
-                md:text-[16px] md:leading-[24px]
-                lg:text-[17px] lg:leading-[26px]
+                mx-auto max-w-[520px]
+                mt-2 text-sm text-[#B9B9B9] sm:text-base
               "
             >
               Powering growth for companies across industries
             </p>
           </div>
 
+
           {/* Cards */}
           <div
             className="
-              mx-auto mt-10 grid max-w-[900px]
+              mx-auto mt-10 grid max-w-[1000px]
               grid-cols-1 gap-x-[28px] gap-y-[26px]
               sm:grid-cols-2
               lg:mt-[44px] lg:grid-cols-3
@@ -91,65 +99,23 @@ const TrustedBrandsSection: React.FC = () => {
             {brands.map((brand) => (
               <div
                 key={brand.id}
-                className="
-                  relative flex h-[74px] items-center justify-center
-                  rounded-[16px] border
-                  border-white/10
-                  bg-white/5
-                  backdrop-blur-md
-                  px-6
-                  sm:h-[78px]
-                  lg:h-[76px]
-                  transition-all duration-300
-                  hover:border-blue-400/30 hover:bg-white/10
-                "
+                className="gradient-border rounded-2xl p-px"
               >
-                {/* Your real logo goes here */}
-                {brand.logo ? (
-                  <img
-                    src={brand.logo}
-                    alt={brand.alt || brand.name}
-                    className="
-                      relative z-[1]
-                      max-h-[34px] w-auto max-w-[150px]
-                      object-contain
-                      sm:max-h-[36px]
-                      lg:max-h-[38px] lg:max-w-[165px]
-                    "
-                  />
-                ) : (
-                  <span className="relative z-[1] text-sm text-white/70">
-                    {brand.name}
-                  </span>
-                )}
+                <div className=" rounded-2xl flex items-center justify-center p-6 h-[76px] w-full">
+                  <brand.Logo className="w-auto h-auto max-w-[80%] max-h-[32px] sm:max-h-[36px] lg:max-h-[40px]" />
+                </div>
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-10 flex justify-center lg:mt-[46px]">
-            {/* <button
-              type="button"
-              className="
-                inline-flex h-[50px] items-center justify-center gap-2
-                rounded-[14px] border border-white/10
-                bg-white/5 backdrop-blur-sm
-                px-6
-                text-[16px] font-semibold leading-[20px] text-white
-                transition-all duration-300
-                hover:bg-white hover:text-black
-                sm:h-[54px] sm:px-7
-                lg:min-w-[266px]
-              "
-            >
-              <span>See How We Scale Brands</span>
-              <span className="text-[18px] leading-none">→</span>
-            </button> */}
+          <div className="mt-10 flex justify-center lg:mt-[52px]">
             <Button
-              variant="secondary"
-              className="w-full sm:w-auto px-10 hover:border-gray-400 transition-colors duration-300 text-[16px]! font-semibold! leading-[24px]! text-white! text-center!"
+              variant="outlined"
+              className="w-full sm:w-auto px-8!  transition-colors duration-300 text-base! font-semibold! leading-[24px]! text-white! text-center! flex items-center justify-center gap-1.5 rounded-xl! py-7! border-[#B9B9B9]! border!"
             >
-              View Case Studies
+              See How We Scale Brands
+              <ArrowIcon className="w-5 h-5 font-bold" />
             </Button>
           </div>
         </div>

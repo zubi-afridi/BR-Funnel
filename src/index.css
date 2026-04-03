@@ -9,7 +9,7 @@
   --color-accent-500: var(--accent-500);
   --color-nav-link: var(--nav-link-color);
 
-  --breakpoint-sm: 510px;
+  --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 77.5rem;
@@ -259,8 +259,37 @@ img {
   }
 }
 .border-mask {
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+}
+
+/* test */
+.gradient-border {
+  position: relative;
+  border-radius: 1rem; /* same as rounded-2xl */
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0.88px; /* border thickness */
+  border-radius: inherit;
+
+  background: linear-gradient(180deg, #793fee 0%, #26fdfe 100%);
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
 }
