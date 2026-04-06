@@ -160,7 +160,7 @@ const Footer = () => {
                 © {currentYear} BR Funnels. All rights reserved.
               </p>
 
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-8 text-[#B9B9B9] text-sm">
+              <div className="flex w-full flex-row items-center justify-between text-[#B9B9B9] text-sm sm:w-auto sm:justify-start sm:gap-8">
                 <a
                   href="#"
                   className="  transition-colors duration-300 hover:text-white "
