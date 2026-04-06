@@ -37,7 +37,7 @@ const MobileOptimized = () => {
                 className="text-white font-semibold tracking-[-0.02em]
                 sm:text-2xl lg:text-[32px] text-xl"
               >
-                Optimized for
+                Optimized for <br />
                 <span className="text-gradient-blue">Mobile-First Buyers</span>
               </h2>
 
