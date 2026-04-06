@@ -275,6 +275,36 @@ img {
   border-radius: 1rem; /* same as rounded-2xl */
 }
 
+.growth-badge {
+  position: relative;
+  display: flex;
+  width: 87.411px;
+  height: 35.212px;
+  padding: 0 14.085px;
+  align-items: center;
+  gap: 7.042px;
+  border-radius: 8.803px;
+  background: transparent;
+  box-shadow:
+    0 8.803px 13.205px -2.641px rgba(0, 0, 0, 0.1),
+    0 3.521px 5.282px -3.521px rgba(0, 0, 0, 0.1);
+}
+
+.growth-badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, #793fee 0%, #26fdfe 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
 .gradient-border::before {
   content: "";
   position: absolute;

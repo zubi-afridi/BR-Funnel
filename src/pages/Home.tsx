@@ -7,6 +7,8 @@ import BrandLogos from "../sections/BrandLogos";
 import Guarantee from "../sections/Guarantee";
 import Services from "../sections/Services";
 import SuccessStories from "../sections/SuccessStories";
+import VideoTestimonials from "../sections/VideoTestimonials";
+import MobileOptimized from "../sections/MobileOptimized";
 const Home = () => {
   return (
     <MainLayout>
@@ -19,10 +21,10 @@ const Home = () => {
         <Guarantee />
         <Services />
         <SuccessStories />
-        {/* 
-        <RevenueFramework />
         <VideoTestimonials />
         <MobileOptimized />
+        {/* 
+        <RevenueFramework />
         <CTASection /> */}
       </div>
     </MainLayout>

@@ -1,12 +1,10 @@
-
-
 import { useState } from "react";
-import Container from "../components/common/Container";
-import SectionHeading from "../components/common/SectionHeading";
+import { Button } from "antd";
+// import Container from "../components/common/Container";
 
 // Images
 import revenueImg from "../assets/icons/sucessStories/revenue.webp";
-import trialImg from "../assets/icons/sucessStories/trial.webp";
+import conversionImg from "../assets/icons/sucessStories/conversion.webp";
 import customerImg from "../assets/icons/sucessStories/customer.webp";
 
 // Icons
@@ -25,7 +23,7 @@ const stories = [
   },
   {
     category: "E-Commerce",
-    image: trialImg,
+    image: conversionImg,
     growth: "+62%",
     title: "Trial Conversions",
     desc: "Optimized onboarding sequences and nurture campaigns for B2B E-Commerce.",
@@ -45,27 +43,40 @@ const SuccessStories = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
   return (
-    <section className="section-spacing relative" id="success-stories">
-      <Container>
-        <SectionHeading
-          title="Proven Funnel Success Stories"
-          subtitle="Real results from real brands we've scaled"
-        />
+    <section className="w-full px-4 sm:px-6 lg:px-8 relative z-10 pt-16 pb-12 overflow-hidden">
+      <div className="mx-auto w-full max-w-[1152px] ">
+        <h2 className="text-center mb-16">
+          <h2
+            className="text-white font-semibold tracking-[-0.02em]
+                sm:text-2xl lg:text-[32px] text-xl"
+          >
+            Proven Funnel Success Stories
+          </h2>
+          <p className="text-sm text-[#B9B9B9] sm:text-base">
+            Real results from real brands we've scaled
+          </p>
+        </h2>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ease-in-out ${
-                activeFilter === filter
-                  ? "bg-[#7455ff] shadow-[0_0_20px_rgba(116,85,255,0.4)] text-white"
-                  : "bg-[#101625] text-gray-400 hover:text-white border border-[#1f2942]"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+          {filters.map((filter) => {
+            const isActive = activeFilter === filter;
+            return (
+              <Button
+                key={filter}
+                htmlType="button"
+                type="default"
+                variant={isActive ? "solid" : "outlined"}
+                onClick={() => setActiveFilter(filter)}
+                className={
+                  isActive
+                    ? "px-6! py-2.5! h-auto! min-h-0! rounded-xl! text-sm! font-semibold! border-none! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! text-white! shadow-[0_0_20px_rgba(31,217,249,0.3)]! hover:text-white! hover:bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! hover:shadow-[0_0_30px_rgba(31,217,249,0.5)]! transition-all duration-300 ease-in-out"
+                    : "px-6! py-2.5! h-auto! min-h-0! rounded-xl! text-sm! font-medium! bg-transparent! border-[#1f2942]! text-gray-400! hover:text-white! hover:border-[#1f2942]! transition-all duration-300 ease-in-out"
+                }
+              >
+                {filter}
+              </Button>
+            );
+          })}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -83,13 +94,11 @@ const SuccessStories = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-[#0b1221] to-transparent opacity-80" />
 
                 <div className="absolute top-4 right-4">
-                  <div className="gradient-border overflow-hidden">
-                    <div className="bg-[#0b1221]/80 backdrop-blur-md px-3 py-1.5 flex items-center justify-center gap-2">
-                      <ProgressIcon className="w-4 h-4 text-white" />
-                      <span className="text-sm font-semibold text-white">
-                        {story.growth}
-                      </span>
-                    </div>
+                  <div className="growth-badge">
+                    <ProgressIcon className="w-4 h-4 text-white shrink-0" />
+                    <span className="text-sm font-semibold text-white whitespace-nowrap">
+                      {story.growth}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -122,7 +131,7 @@ const SuccessStories = () => {
             </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

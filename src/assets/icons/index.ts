@@ -33,3 +33,6 @@ export { default as LayerIcon } from "./guarantee/layer.svg?react";
 export { default as ServiceSearchIcon } from "./service/search.svg?react";
 export { default as ServiceOrbitIcon } from "./service/orbit.svg?react";
 export { default as ServiceMsgIcon } from "./service/msg.svg?react";
+
+export { default as PurchasingIcon } from "./MobileOptimized/purchasing.svg?react";
+export { default as TickIcon } from "./MobileOptimized/tick.svg";
