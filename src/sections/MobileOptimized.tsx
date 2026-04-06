@@ -41,7 +41,7 @@ const MobileOptimized = () => {
                 <span className="text-gradient-blue">Mobile-First Buyers</span>
               </h2>
 
-              <p className="max-w-[370px] text-[18px] leading-7 text-[#B9B9B9] sm:text-base">
+              <p className="max-w-[370px] text-base leading-7 text-[#B9B9B9] sm:text-[18px]">
                 Over 70% of emails are opened on mobile. We design for
                 thumb-friendly engagement.
               </p>
@@ -60,7 +60,7 @@ const MobileOptimized = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-[18px] font-medium leading-6 text-white sm:text-base">
+                    <h3 className="text-base font-medium leading-6 text-white sm:text-[18px]">
                       {item.title}
                     </h3>
                     <p className="mt-1 text-base leading-6 text-white/55 ">
