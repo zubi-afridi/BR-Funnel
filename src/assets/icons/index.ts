@@ -36,3 +36,7 @@ export { default as ServiceMsgIcon } from "./service/msg.svg?react";
 
 export { default as PurchasingIcon } from "./MobileOptimized/purchasing.svg?react";
 export { default as TickIcon } from "./MobileOptimized/tick.svg";
+
+export { default as InstagramIcon } from "./social/instagram.svg?react";
+export { default as LinkedInIcon } from "./social/linkedin.svg?react";
+export { default as TwitterIcon } from "./social/twitter.svg?react";
