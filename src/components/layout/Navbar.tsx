@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Drawer } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import Container from "../common/Container";
 import Button from "../common/Button";
 import { PhoneIcon } from "../../assets";
@@ -19,17 +20,17 @@ const Navbar = () => {
   const onClose = () => setOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-100 bg-[#0B0F1A]/80 backdrop-blur-xl transition-all duration-300 border-b border-[#B9B9B9]">
-      <Container className="flex justify-between items-center h-16 md:h-18 lg:h-20 xl:h-24 ">
+    <header className="fixed top-0 left-0 right-0 z-100 bg-[#0B0F1A]/80 backdrop-blur-xl transition-all duration-300 border-b border-white/10">
+      <Container className="flex justify-between items-center h-16 md:h-18 lg:h-20  ">
         {/* Logo Section */}
 
         <div className="shrink-0">
-          <a
-            href="/"
-            className="text-3xl font-semibold tracking-wider text-gradient-blue hover:opacity-80 transition-opacity cursor-pointer"
+          <Link
+            to="/"
+            className="text-3xl font-semibold  text-gradient-blue hover:opacity-80 transition-opacity cursor-pointer"
           >
             BR FUNNELS
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation - Semantic nav & ul */}
@@ -51,7 +52,7 @@ const Navbar = () => {
 
         {/* CTA Section - Desktop */}
         <div className="hidden md:block">
-          <Button className="flex items-center gap-2 group md:px-[16px]! md:py-[8px]! lg:px-[30px]! lg:py-[13px]! rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!">
+          <Button className="flex items-center gap-2 group md:px-[16px]! md:py-[8px]! lg:px-[30px]! lg:py-[13px]! rounded-md xl:rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!">
             <PhoneIcon className="text-md lg:text-lg group-hover:rotate-12 transition-transform duration-300" />
             <span className="tracking-wide text-sm lg:text-base">Book a Call</span>
           </Button>
@@ -72,7 +73,7 @@ const Navbar = () => {
       <Drawer
         title={
           <div className="flex justify-between items-center w-full px-2">
-            <span className="text-[24px] font-semibold tracking-wider text-gradient-blue">
+            <span className="text-[28px] font-semibold  text-gradient-blue">
               BR FUNNELS
             </span>
           </div>
@@ -80,7 +81,7 @@ const Navbar = () => {
         placement="right"
         onClose={onClose}
         open={open}
-        width={320}
+        size="large"
         closeIcon={
           <CloseOutlined
             style={{ color: "white" }}

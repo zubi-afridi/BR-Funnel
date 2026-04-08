@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Button, Input } from "antd";
+import { Link } from "react-router-dom";
 import {
   ArrowIcon,
   InstagramIcon,
@@ -83,12 +84,12 @@ const Footer = () => {
           <div className="grid grid-cols-1 gap-9 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1.2fr] lg:gap-10 xl:gap-16">
             {/* Left brand section */}
             <div className="max-w-[340px]">
-              <a
-                href="/"
-                className="text-3xl font-semibold tracking-wider text-gradient-blue hover:opacity-80 transition-opacity cursor-pointer"
+              <Link
+                to="/"
+                className="text-3xl font-semibold text-gradient-blue hover:opacity-80 transition-opacity cursor-pointer!"
               >
                 BR FUNNELS
-              </a>
+              </Link>
 
               <p className="mt-5 max-w-[350px]  leading-[1.7] text-[#B9B9B9] md:mt-7 text-sm">
                 Performance-driven email &amp; SMS growth systems.
