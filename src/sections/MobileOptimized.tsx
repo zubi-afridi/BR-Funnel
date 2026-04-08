@@ -41,7 +41,7 @@ const MobileOptimized = () => {
                 <span className="text-gradient-blue">Mobile-First Buyers</span>
               </h2>
 
-              <p className="max-w-[370px] text-base leading-7 text-[#B9B9B9] sm:text-[18px]">
+              <p className="mt-2 text-sm text-[#B9B9B9] sm:text-base">
                 Over 70% of emails are opened on mobile. We design for
                 thumb-friendly engagement.
               </p>
@@ -51,12 +51,7 @@ const MobileOptimized = () => {
               {features.map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
                   <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#172554] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                    <img
-                      src={TickIcon}
-                      alt=""
-                      className="h-4 w-4"
-                      aria-hidden="true"
-                    />
+                    <TickIcon className="h-4 w-4" aria-hidden="true" />
                   </div>
 
                   <div>

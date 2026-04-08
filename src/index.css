@@ -323,3 +323,44 @@ img {
 
   pointer-events: none;
 }
+/* used */
+.circle {
+  background: linear-gradient(180deg, #2563eb 0%, #7c3aed 100%);
+  box-shadow: 0 0 35.212px 0 rgba(124, 58, 237, 0.4);
+}
+.small_circle {
+  background: linear-gradient(180deg, #793fee 0%, #26fdfe 100%);
+  box-shadow: 0 8.803px 13.205px -2.641px rgba(0, 0, 0, 0.1);
+}
+.border-bottom {
+  border-bottom: 2px solid linear-gradient(180deg, #793fee 0%, #26fdfe 100%);
+}
+.calendar_bg {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}

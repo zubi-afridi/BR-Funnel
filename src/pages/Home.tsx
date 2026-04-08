@@ -9,6 +9,8 @@ import Services from "../sections/Services";
 import SuccessStories from "../sections/SuccessStories";
 import VideoTestimonials from "../sections/VideoTestimonials";
 import MobileOptimized from "../sections/MobileOptimized";
+import RevenueFramework from "../sections/RevenueFramework";
+import CTASection from "../sections/CTASection";
 const Home = () => {
   return (
     <MainLayout>
@@ -23,9 +25,8 @@ const Home = () => {
         <SuccessStories />
         <VideoTestimonials />
         <MobileOptimized />
-        {/* 
         <RevenueFramework />
-        <CTASection /> */}
+        <CTASection />
       </div>
     </MainLayout>
   );

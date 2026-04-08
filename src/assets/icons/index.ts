@@ -11,6 +11,11 @@ export { default as KlaviyoIcon } from "./Integration-section/klaviyo.svg?react"
 export { default as ArrowIcon } from "./common/right-arrow.svg?react";
 export { default as EmailIcon } from "./portfolio-section/email-icon.svg?react";
 export { default as progressIcon } from "./common/progress-icon.svg?react";
+
+export { default as RevenueSearchIcon } from "./revenue/search.svg?react";
+export { default as RevenueMappingIcon } from "./revenue/mapping.svg?react";
+export { default as RevenueLayerIcon } from "./revenue/layer.svg?react";
+export { default as RevenueSettingIcon } from "./revenue/setting.svg?react";
 export { default as UserIcon } from "./common/user.svg?react";
 export { default as DollarIcon } from "./performance/dollar.svg?react";
 export { default as Email } from "./performance/email.svg?react";
@@ -35,8 +40,17 @@ export { default as ServiceOrbitIcon } from "./service/orbit.svg?react";
 export { default as ServiceMsgIcon } from "./service/msg.svg?react";
 
 export { default as PurchasingIcon } from "./MobileOptimized/purchasing.svg?react";
-export { default as TickIcon } from "./MobileOptimized/tick.svg";
+export { default as TickIcon } from "./MobileOptimized/tick.svg?react";
 
 export { default as InstagramIcon } from "./social/instagram.svg?react";
 export { default as LinkedInIcon } from "./social/linkedin.svg?react";
 export { default as TwitterIcon } from "./social/twitter.svg?react";
+
+export { default as ClockIcon } from "./CTASection/clock.svg";
+export { default as VideoIcon } from "./CTASection/video.svg";
+export { default as Tick } from "./CTASection/tick-icon.svg";
+
+export { default as LeftArrow } from "./calendar/left-arrow.svg?react";
+export { default as RightArrow } from "./calendar/right-arrow.svg?react";
+export { default as WorldIcon } from "./calendar/world.svg?react";
+export { default as DownArrow } from "./calendar/down-arrow.svg?react";
