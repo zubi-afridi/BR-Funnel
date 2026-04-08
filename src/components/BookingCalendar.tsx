@@ -119,7 +119,7 @@ const BookingCalendar = () => {
       <div className="grid grid-cols-7 text-center items-center justify-center gap-y-1">
         {/* Padding for first day of month */}
         {Array.from({ length: firstDayOfMonth }).map((_, i) => (
-          <div key={`empty-${i}`} className="p-1 h-[75px]"></div>
+          <div key={`empty-${i}`} className="p-1 h-[60px]"></div>
         ))}
 
         {/* Month Days */}
@@ -133,7 +133,7 @@ const BookingCalendar = () => {
               <button
                 onClick={() => !disabled && setSelectedDate(day)}
                 disabled={disabled}
-                className={`w-full h-[70px] flex items-center justify-center rounded-lg transition-all relative
+                className={`w-full max-w-[55px] mx-auto h-[55px] flex items-center justify-center rounded-lg transition-all relative
                   ${disabled
                     ? "text-[#364153] cursor-not-allowed font-semibold"
                     : "text-white text-sm font-semibold bg-[#FFFFFF0D] border border-white/10 hover:border-[#4D90FE]/40 hover:bg-[#1F2937]/80 cursor-pointer"
