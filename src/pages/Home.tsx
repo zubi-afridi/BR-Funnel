@@ -14,7 +14,7 @@ import CTASection from "../sections/CTASection";
 const Home = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col gap-[40px] md:gap-[50px] lg:gap-[75px]">
+      <div className="flex flex-col gap-[50px] md:gap-[70px] lg:gap-[90px]">
         <Hero />
         <Integrations />
         <PortfolioShowcase />
