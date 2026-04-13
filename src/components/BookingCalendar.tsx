@@ -53,7 +53,7 @@ const BookingCalendar = () => {
           const d = i + 1, disabled = isOff(d), active = sel === d;
           return (
             <div key={d} className="p-0.5">
-              <button disabled={disabled} onClick={() => setSel(d)} className={`w-full max-w-[55px] mx-auto h-[55px] flex items-center justify-center rounded-lg transition-all font-semibold ${disabled ? "text-[#364153] cursor-not-allowed" : "text-white text-sm bg-white/5 border border-white/10 hover:border-[#4D90FE]/40 hover:bg-[#1F2937]/80"} ${active ? "bg-[#4D90FE]! border-[#4D90FE] ring-2 ring-[#4D90FE]/20" : ""}`}>
+              <button disabled={disabled} onClick={() => setSel(d)} className={`w-full max-w-[55px] mx-auto h-[55px] flex items-center justify-center rounded-lg transition-all font-semibold ${disabled ? "text-[#364153] cursor-not-allowed" : "text-white text-sm bg-white/5 border border-white/10 hover:border-[#4D90FE]/40 hover:bg-[#1F2937]/80 cursor-pointer"} ${active ? "bg-[#4D90FE]! border-[#4D90FE] ring-2 ring-[#4D90FE]/20" : ""}`}>
                 {d}
               </button>
             </div>

@@ -6,7 +6,7 @@ const Services = () => {
     { id: 3, title: "SMS Marketing", desc: "High-converting SMS flows and promotional campaigns with compliance built-in.", linkText: "Explore", icon: ServiceMsgIcon, active: false }
   ];
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
+    <section id="services" className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
       <div className="mx-auto w-full max-w-[1152px]">
         <div className="text-center mb-16">
           <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">Our Revenue Growth Services</h2>

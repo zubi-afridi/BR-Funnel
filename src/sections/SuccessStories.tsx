@@ -15,7 +15,7 @@ const stories = [
 const SuccessStories = () => {
   const [active, setActive] = useState("All");
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
+    <section id="case-studies" className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
       <div className="mx-auto w-full max-w-[1152px]">
         <div className="text-center mb-16">
           <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">Proven Funnel Success Stories</h2>

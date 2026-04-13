@@ -5,7 +5,7 @@ const videos = [
 ];
 
 const VideoTestimonials = () => (
-  <section className="relative z-10 w-full overflow-hidden px-4 sm:px-6 lg:px-8">
+  <section id="clients" className="relative z-10 w-full overflow-hidden px-4 sm:px-6 lg:px-8">
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="absolute size-[438px] rounded-full bg-[linear-gradient(90deg,rgba(37,99,235,0.1)_0%,rgba(124,58,237,0.1)_100%)] opacity-30 blur-[137.5px] -left-[10px] top-[10px]" />
       <div className="absolute h-[435px] w-[485px] rounded-full bg-[linear-gradient(180deg,#793FEE_0%,#26FDFE_100%)] opacity-30 blur-[137.5px] -right-[180px] top-[10px]" />
