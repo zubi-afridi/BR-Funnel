@@ -2,15 +2,15 @@ import React from "react";
 import { LightLayer, DarkLayer, AuriasLogo, WallifyLogo, BarelineLogo, EonsLogo, MoigoLogo, TreeLogo, NurseryLogo, ShunraiLogo, RadeantLogo, ArrowIcon } from "../assets";
 import Button from "../components/common/Button";
 const brands = [
-  { id: 1, name: "TN Nursery", Logo: NurseryLogo },
-  { id: 2, name: "TN Nursery (Tree)", Logo: TreeLogo },
-  { id: 3, name: "AEons", Logo: EonsLogo },
-  { id: 4, name: "Auria's", Logo: AuriasLogo },
-  { id: 5, name: "Bareline", Logo: BarelineLogo },
-  { id: 6, name: "Wallify", Logo: WallifyLogo },
-  { id: 7, name: "MOIG", Logo: MoigoLogo },
-  { id: 8, name: "Radéant", Logo: RadeantLogo },
-  { id: 9, name: "Shunrai Knives", Logo: ShunraiLogo }
+  { id: 1, name: "TN Nursery", Logo: NurseryLogo, url: "https://www.tnnursery.net/" },
+  { id: 2, name: "TN Nursery (Tree)", Logo: TreeLogo, url: "https://www.tennesseewholesalenursery.com/" },
+  { id: 3, name: "AEons", Logo: EonsLogo, url: "https://eons.com/" },
+  { id: 4, name: "Auria's", Logo: AuriasLogo, url: "https://auriasmalaysiankitchen.com/" },
+  { id: 5, name: "Bareline", Logo: BarelineLogo, url: "https://bareline.com/" },
+  { id: 6, name: "Wallify", Logo: WallifyLogo, url: "https://wallifystudio.com/" },
+  { id: 7, name: "MOIG", Logo: MoigoLogo, url: "https://mansionsonig.com/" },
+  { id: 8, name: "Radéant", Logo: RadeantLogo, url: "https://radiantroot.net/" },
+  { id: 9, name: "Shunrai Knives", Logo: ShunraiLogo, url: "https://www.shinraiknives.com/" }
 ];
 const TrustedBrandsSection: React.FC = () => (
   <section className="w-full px-4 sm:px-6 lg:px-8">
@@ -25,12 +25,12 @@ const TrustedBrandsSection: React.FC = () => (
           <p className="mx-auto max-w-[520px] mt-2 text-sm text-[#B9B9B9] sm:text-base">Powering growth for companies across industries</p>
         </div>
         <div className="mx-auto mt-10 grid max-w-[1000px] grid-cols-1 gap-x-7 gap-y-6 sm:grid-cols-2 lg:mt-11 lg:grid-cols-3">
-          {brands.map(({ id, Logo }) => (
-            <div key={id} className="gradient-border rounded-2xl p-px">
-              <div className="rounded-2xl flex items-center justify-center p-6 h-[76px] w-full hover:scale-110 transition-all duration-300">
+          {brands.map(({ id, Logo, url }) => (
+            <a key={id} href={url} target="_blank" rel="noopener noreferrer" className="gradient-border rounded-2xl p-px block group">
+              <div className="rounded-2xl flex items-center justify-center p-6 h-[76px] w-full group-hover:scale-110 transition-all duration-300">
                 <Logo className="w-auto h-auto max-w-[80%] max-h-8 sm:max-h-9 lg:max-h-10" />
               </div>
-            </div>
+            </a>
           ))}
         </div>
         <div className="mt-10 flex justify-center lg:mt-[52px]">

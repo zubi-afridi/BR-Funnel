@@ -36,11 +36,11 @@ const BookingCalendar = () => {
         <span className="text-[10px] text-gradient-blue font-bold uppercase tracking-wider">POWERED BY CALENDLY</span>
       </div>
       <div className="flex justify-between items-center mb-4 px-2">
-        <button onClick={() => changeMo(-1)} className="size-8 flex items-center rounded-md justify-center bg-white/4 border border-white/10 hover:bg-white/10 transition-all active:scale-95 group">
+        <button onClick={() => changeMo(-1)} className="size-8 flex items-center rounded-md justify-center bg-white/4 border border-white/10 hover:bg-white/10 transition-all active:scale-95 group cursor-pointer">
           <div className="opacity-70 group-hover:opacity-100"><LeftArrow /></div>
         </button>
         <h4 className="text-[14px] font-medium">{months[mo]} {yr}</h4>
-        <button onClick={() => changeMo(1)} className="size-8 flex items-center rounded-md justify-center bg-white/4 border border-white/10 hover:bg-white/10 transition-all active:scale-95 group">
+        <button onClick={() => changeMo(1)} className="size-8 flex items-center rounded-md justify-center bg-white/4 border border-white/10 hover:bg-white/10 transition-all active:scale-95 group cursor-pointer">
           <div className="opacity-70 group-hover:opacity-100"><RightArrow /></div>
         </button>
       </div>

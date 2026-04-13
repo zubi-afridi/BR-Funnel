@@ -11,7 +11,7 @@ const features = [
 ];
 
 const CTASection = () => (
-  <section className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
+  <section id="contact" className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
     <div className="mx-auto w-full max-w-[1152px]">
       <div className="space-y-4">
         <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">

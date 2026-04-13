@@ -119,7 +119,10 @@ const Navbar = () => {
           </ul>
         </nav>
         <div className="hidden md:block">
-          <Button className="flex items-center gap-2 group md:px-[16px]! md:py-[8px]! lg:px-[30px]! lg:py-[13px]! rounded-md xl:rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!">
+          <Button
+            onClick={(e) => scrollToSection(e as any, { href: "#contact", path: "/contact" })}
+            className="flex items-center gap-2 group md:px-[16px]! md:py-[8px]! lg:px-[30px]! lg:py-[13px]! rounded-md xl:rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!"
+          >
             <PhoneIcon className="text-md lg:text-lg group-hover:rotate-12 transition-transform duration-300" />
             <span className="tracking-wide text-sm lg:text-base">Book a Call</span>
           </Button>
@@ -170,7 +173,10 @@ const Navbar = () => {
           })}
           <div className="px-8 mt-8">
             <Button
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                setOpen(false);
+                scrollToSection(e as any, { href: "#contact", path: "/contact" });
+              }}
               className="flex items-center justify-center gap-2 group w-full px-[30px]! py-[13px]! rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!"
             >
               <PhoneIcon className="text-xl group-hover:rotate-12 transition-transform duration-300" />
