@@ -5,6 +5,12 @@
   <p><strong>🌍 Live Website:</strong> <a href="https://br-funnels.vercel.app/">https://br-funnels.vercel.app/</a></p>
 </div>
 
+<br />
+
+![Landing Page Preview](./public/website-img.png)
+
+<br />
+
 ---
 
 ## 🚀 Key Features and Functionality
@@ -77,12 +83,6 @@ br-funnel/
 ├── vite.config.ts          # Vite configuration
 └── tailwind.config.js*     # Tailwind setup (handled via v4 Vite plugin)
 ```
-
-## 📸 Screenshots / UI Preview
-
-### Landing Page Overview
-![Landing Page Preview](./public/website-img.png)
-> The complete visual overview of the high-performance landing page.
 
 ## 📌 Important Notes & Assumptions
 
