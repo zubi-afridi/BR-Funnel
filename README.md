@@ -2,6 +2,7 @@
 
 <div align="center">
   <p>A modern, high-converting React landing page built for agencies focused on scaling revenue through Email & SMS marketing.</p>
+  <p><strong>🌍 Live Website:</strong> <a href="https://br-funnels.vercel.app/">https://br-funnels.vercel.app/</a></p>
 </div>
 
 ---
@@ -79,15 +80,9 @@ br-funnel/
 
 ## 📸 Screenshots / UI Preview
 
-*(Replace the placeholder descriptions below with actual screenshots of your project)*
-
-### Hero Section
-![Hero Section Placeholder](https://via.placeholder.com/800x400.png?text=Hero+Section+Screenshot)
-> The high-impact introductory section featuring animated statistics and strategic call-to-actions.
-
-### Revenue Framework
-![Revenue Framework Placeholder](https://via.placeholder.com/800x400.png?text=Revenue+Framework+Screenshot)
-> Visually engaging timeline detailing the process.
+### Landing Page Overview
+![Landing Page Preview](./public/website-img.png)
+> The complete visual overview of the high-performance landing page.
 
 ## 📌 Important Notes & Assumptions
 
