@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Drawer } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import Container from "../common/Container";
 import Button from "../common/Button";
 import { PhoneIcon } from "../../assets";
@@ -13,11 +15,55 @@ const menuItems = [
   { label: "Our Process", href: "#process", path: "/our-process" },
 ];
 
+/* ================== ANIMATION VARIANTS ================== */
+
+const containerVariants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const logoVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
+const buttonVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { delay: 0.4, duration: 0.4 },
+  },
+};
+
+/* ================== COMPONENT ================== */
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,8 +90,10 @@ const Navbar = () => {
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       let changed = false;
+
       entries.forEach((entry) => {
         const id = entry.target.id;
+
         if (entry.isIntersecting) {
           visibleSections.add(id);
           changed = true;
@@ -58,8 +106,15 @@ const Navbar = () => {
       });
 
       if (changed) {
-        const order = ["services", "case-studies", "clients", "process", "contact"];
+        const order = [
+          "services",
+          "case-studies",
+          "clients",
+          "process",
+          "contact",
+        ];
         let topActive = "";
+
         for (const id of order) {
           if (visibleSections.has(id)) {
             topActive = id;
@@ -75,7 +130,8 @@ const Navbar = () => {
             }
           } else {
             setActiveSection(topActive);
-            const item = menuItems.find(m => m.href === `#${topActive}`);
+            const item = menuItems.find((m) => m.href === `#${topActive}`);
+
             if (item && window.location.pathname !== item.path) {
               window.history.replaceState(null, "", item.path);
             }
@@ -89,8 +145,18 @@ const Navbar = () => {
       }
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = ["services", "case-studies", "clients", "process", "contact"];
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+    const sections = [
+      "services",
+      "case-studies",
+      "clients",
+      "process",
+      "contact",
+    ];
+
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -100,13 +166,20 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, item: { href: string; path: string }) => {
+    (
+      e: React.MouseEvent<HTMLAnchorElement>,
+      item: { href: string; path: string },
+    ) => {
       e.preventDefault();
+
       const id = item.href.replace("#", "");
       const element = document.getElementById(id);
+
       if (element) {
         const rect = element.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
         let targetY = rect.top + scrollTop - 100;
 
         if (id === "process") {
@@ -117,68 +190,100 @@ const Navbar = () => {
           top: targetY,
           behavior: "smooth",
         });
+
         navigate(item.path, { replace: true });
         setOpen(false);
       }
     },
-    [navigate]
+    [navigate],
   );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-100 bg-[#0B0F1A]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
-      <Container variant="nav" className="flex justify-between items-center h-16 md:h-18 lg:h-20">
-        <div className="shrink-0">
-          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-3xl font-semibold text-gradient-blue hover:opacity-80 transition-opacity">
+    <motion.header
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="fixed top-0 left-0 right-0 z-100 bg-[#0B0F1A]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300"
+    >
+      <Container className="flex justify-between items-center h-16 md:h-18 lg:h-20">
+        {/* LOGO */}
+        <motion.div variants={logoVariants} className="shrink-0">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-3xl font-semibold text-gradient-blue hover:opacity-80 transition-opacity"
+          >
             BR FUNNELS
           </Link>
-        </div>
+        </motion.div>
 
+        {/* NAV LINKS */}
         <nav className="hidden md:flex items-center">
           <ul className="flex items-center md:space-x-4 lg:space-x-10 list-none m-0 p-0">
             {menuItems.map((item) => {
               const isActive = activeSection === item.href.replace("#", "");
+
               return (
-                <li key={item.label}>
+                <motion.li key={item.label} variants={itemVariants}>
                   <a
                     href={item.href}
                     onClick={(e) => scrollToSection(e, item)}
                     className={`text-sm lg:text-lg font-medium transition-all duration-200 relative group ${
-                      isActive ? "text-white!" : "text-[#E4E4E4]! hover:text-white"
+                      isActive
+                        ? "text-white!"
+                        : "text-[#E4E4E4]! hover:text-white"
                     }`}
                   >
                     {item.label}
+
                     <span
                       className={`absolute rounded -bottom-1 left-0 h-0.5 bg-linear-to-r from-[#793FEE] to-[#26FDFE] transition-all duration-300 group-hover:w-full ${
                         isActive ? "w-full" : "w-0"
                       }`}
                     />
                   </a>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
         </nav>
-        <div className="hidden md:block">
+
+        {/* CTA BUTTON */}
+        <motion.div variants={buttonVariants} className="hidden md:block">
           <Button
-            onClick={(e) => scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, { href: "#contact", path: "/contact" })}
+            onClick={(e) =>
+              scrollToSection(
+                e as unknown as React.MouseEvent<HTMLAnchorElement>,
+                { href: "#contact", path: "/contact" },
+              )
+            }
             className="flex items-center gap-2 group md:px-[16px]! md:py-[8px]! lg:px-[30px]! lg:py-[13px]! rounded-md xl:rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!"
           >
             <PhoneIcon className="text-md lg:text-lg group-hover:rotate-12 transition-transform duration-300" />
-            <span className="tracking-wide text-sm lg:text-base">Book a Call</span>
+            <span className="tracking-wide text-sm lg:text-base">
+              Book a Call
+            </span>
           </Button>
-        </div>
+        </motion.div>
+
+        {/* MOBILE MENU BUTTON */}
         <div className="md:hidden flex items-center gap-4">
           <button
             onClick={() => setOpen(true)}
             className="flex items-center justify-center size-10 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
-            aria-label="Toggle Menu"
           >
             <MenuOutlined className="text-xl" />
           </button>
         </div>
       </Container>
+
+      {/* DRAWER (UNCHANGED) */}
       <Drawer
-        title={<span className="text-[28px] font-semibold text-gradient-blue px-2">BR FUNNELS</span>}
+        title={
+          <span className="text-[28px] font-semibold text-gradient-blue px-2">
+            BR FUNNELS
+          </span>
+        }
         placement="right"
         onClose={() => setOpen(false)}
         open={open}
@@ -197,23 +302,30 @@ const Navbar = () => {
         <ul className="flex flex-col list-none m-0 p-0">
           {menuItems.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
+
             return (
               <li key={item.label}>
                 <a
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item)}
-                  className={`block px-8 py-4 text-lg font-medium transition-all border-b border-white/5 ${isActive ? "text-gradient-blue" : "text-[#E4E4E4]!"}`}
+                  className={`block px-8 py-4 text-lg font-medium transition-all border-b border-white/5 ${
+                    isActive ? "text-gradient-blue" : "text-[#E4E4E4]!"
+                  }`}
                 >
                   {item.label}
                 </a>
               </li>
             );
           })}
+
           <div className="px-8 mt-8">
             <Button
               onClick={(e) => {
                 setOpen(false);
-                scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, { href: "#contact", path: "/contact" });
+                scrollToSection(
+                  e as unknown as React.MouseEvent<HTMLAnchorElement>,
+                  { href: "#contact", path: "/contact" },
+                );
               }}
               className="flex items-center justify-center gap-2 group w-full px-[30px]! py-[13px]! rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!"
             >
@@ -223,7 +335,8 @@ const Navbar = () => {
           </div>
         </ul>
       </Drawer>
-    </header>
+    </motion.header>
   );
 };
+
 export default Navbar;

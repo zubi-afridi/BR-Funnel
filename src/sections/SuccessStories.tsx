@@ -4,6 +4,8 @@ import revenueImg from "../assets/icons/sucessStories/revenue.webp";
 import conversionImg from "../assets/icons/sucessStories/conversion.webp";
 import customerImg from "../assets/icons/sucessStories/customer.webp";
 import { ArrowIcon, progressIcon as ProgressIcon } from "../assets/icons";
+import { motion } from "framer-motion";
+import { fadeInTop, staggerContainer, viewportSettings } from "../utils/animationVariants";
 
 const filters = ["All", "E-Commerce", "DTC", "Info Products"];
 const stories = [
@@ -16,22 +18,39 @@ const SuccessStories = () => {
   const [active, setActive] = useState("All");
   return (
     <section id="case-studies" className="w-full px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
-      <div className="mx-auto w-full max-w-[1152px]">
-        <div className="text-center mb-16">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportSettings}
+        className="mx-auto w-full max-w-[1152px]"
+      >
+        {/* Scroll Animation: Header */}
+        <motion.div variants={fadeInTop} className="text-center mb-16">
           <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">Proven Funnel Success Stories</h2>
           <p className="text-sm text-[#B9B9B9] sm:text-base">Real results from real brands we've scaled</p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+        </motion.div>
+        
+        {/* Scroll Animation: Filters */}
+        <motion.div variants={fadeInTop} className="flex flex-wrap items-center justify-center gap-4 mb-12">
           {filters.map(f => {
             const isA = active === f;
             return (
               <Button key={f} onClick={() => setActive(f)} className={isA ? "px-6! py-2.5! h-auto! min-h-0! rounded-xl! text-sm! font-semibold! border-none! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! text-white! shadow-[0_0_20px_rgba(31,217,249,0.3)]! transition-all duration-300" : "px-6! py-2.5! h-auto! min-h-0! rounded-xl! text-sm! font-medium! bg-transparent! border-[#1f2942]! text-gray-400! hover:text-white! transition-all duration-300"}>{f}</Button>
             );
           })}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </motion.div>
+        
+        {/* Scroll Animation: Grid Cards */}
+        <motion.div 
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {stories.map((s, i) => (
-            <div key={i} className="site-panel flex flex-col overflow-hidden group">
+            <motion.div 
+              key={i} 
+              variants={fadeInTop}
+              className="site-panel flex flex-col overflow-hidden group"
+            >
               <div className="relative h-[220px] w-full overflow-hidden">
                 <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40 opacity-80 pointer-events-none" />
@@ -55,10 +74,10 @@ const SuccessStories = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
