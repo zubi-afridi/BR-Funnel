@@ -1,4 +1,4 @@
-import { FC, SVGProps } from "react";
+
 import { Button } from "antd";
 import { ArrowIcon, progressIcon as ProgressIcon, RevenueLayerIcon, RevenueMappingIcon, RevenueSearchIcon, RevenueSettingIcon } from "../assets/icons";
 

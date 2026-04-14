@@ -35,25 +35,61 @@ const Navbar = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-40% 0px -40% 0px",
+      rootMargin: "-30% 0px -30% 0px",
       threshold: 0,
     };
 
+    const visibleSections = new Set<string>();
+
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      let changed = false;
       entries.forEach((entry) => {
+        const id = entry.target.id;
         if (entry.isIntersecting) {
-          const id = entry.target.id;
-          setActiveSection(id);
-          const item = menuItems.find(m => m.href === `#${id}`);
-          if (item && window.location.pathname !== item.path) {
-            window.history.replaceState(null, "", item.path);
+          visibleSections.add(id);
+          changed = true;
+        } else {
+          if (visibleSections.has(id)) {
+            visibleSections.delete(id);
+            changed = true;
           }
         }
       });
+
+      if (changed) {
+        const order = ["services", "case-studies", "clients", "process", "contact"];
+        let topActive = "";
+        for (const id of order) {
+          if (visibleSections.has(id)) {
+            topActive = id;
+            break;
+          }
+        }
+
+        if (topActive) {
+          if (topActive === "contact") {
+            setActiveSection("");
+            if (window.location.pathname !== "/contact") {
+              window.history.replaceState(null, "", "/contact");
+            }
+          } else {
+            setActiveSection(topActive);
+            const item = menuItems.find(m => m.href === `#${topActive}`);
+            if (item && window.location.pathname !== item.path) {
+              window.history.replaceState(null, "", item.path);
+            }
+          }
+        } else {
+          setActiveSection("");
+          if (window.location.pathname !== "/") {
+            window.history.replaceState(null, "", "/");
+          }
+        }
+      }
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = ["services", "case-studies", "clients", "process"];
+    const sections = ["services", "case-studies", "clients", "process", "contact"];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
