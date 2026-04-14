@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Drawer } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,17 +6,18 @@ import Container from "../common/Container";
 import Button from "../common/Button";
 import { PhoneIcon } from "../../assets";
 
+const menuItems = [
+  { label: "Services", href: "#services", path: "/services" },
+  { label: "Case Studies", href: "#case-studies", path: "/case-studies" },
+  { label: "Our Clients", href: "#clients", path: "/our-clients" },
+  { label: "Our Process", href: "#process", path: "/our-process" },
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const navigate = useNavigate();
 
-  const menuItems = [
-    { label: "Services", href: "#services", path: "/services" },
-    { label: "Case Studies", href: "#case-studies", path: "/case-studies" },
-    { label: "Our Clients", href: "#clients", path: "/our-clients" },
-    { label: "Our Process", href: "#process", path: "/our-process" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -98,27 +99,30 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, item: { href: string; path: string }) => {
-    e.preventDefault();
-    const id = item.href.replace("#", "");
-    const element = document.getElementById(id);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      let targetY = rect.top + scrollTop - 100;
+  const scrollToSection = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, item: { href: string; path: string }) => {
+      e.preventDefault();
+      const id = item.href.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        let targetY = rect.top + scrollTop - 100;
 
-      if (id === "process") {
-        targetY = rect.top + scrollTop - 120;
+        if (id === "process") {
+          targetY = rect.top + scrollTop - 120;
+        }
+
+        window.scrollTo({
+          top: targetY,
+          behavior: "smooth",
+        });
+        navigate(item.path, { replace: true });
+        setOpen(false);
       }
-
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth",
-      });
-      navigate(item.path, { replace: true });
-      setOpen(false);
-    }
-  };
+    },
+    [navigate]
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-100 bg-[#0B0F1A]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
@@ -156,7 +160,7 @@ const Navbar = () => {
         </nav>
         <div className="hidden md:block">
           <Button
-            onClick={(e) => scrollToSection(e as any, { href: "#contact", path: "/contact" })}
+            onClick={(e) => scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, { href: "#contact", path: "/contact" })}
             className="flex items-center gap-2 group md:px-[16px]! md:py-[8px]! lg:px-[30px]! lg:py-[13px]! rounded-md xl:rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!"
           >
             <PhoneIcon className="text-md lg:text-lg group-hover:rotate-12 transition-transform duration-300" />
@@ -198,9 +202,7 @@ const Navbar = () => {
                 <a
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item)}
-                  className={`block px-8 py-4 text-lg font-medium transition-all border-b border-white/5 ${
-                    isActive ? "text-white bg-white/5" : "text-[#E4E4E4]! hover:bg-white/5"
-                  }`}
+                  className={`block px-8 py-4 text-lg font-medium transition-all border-b border-white/5 ${isActive ? "text-gradient-blue" : "text-[#E4E4E4]!"}`}
                 >
                   {item.label}
                 </a>
@@ -211,7 +213,7 @@ const Navbar = () => {
             <Button
               onClick={(e) => {
                 setOpen(false);
-                scrollToSection(e as any, { href: "#contact", path: "/contact" });
+                scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, { href: "#contact", path: "/contact" });
               }}
               className="flex items-center justify-center gap-2 group w-full px-[30px]! py-[13px]! rounded-[10px]! bg-[linear-gradient(90deg,#793FEE_0.05%,#26FDFE_133.43%)]! min-h-0! border-none!"
             >

@@ -20,7 +20,7 @@ const VideoTestimonials = () => (
           <div key={i} className="w-full">
             <div className="overflow-hidden rounded-[24px]">
               <div className="relative aspect-video w-full">
-                <iframe className="absolute inset-0 h-full w-full" src={`https://www.youtube.com/embed/${videoId}`} title={name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+                <iframe className="absolute inset-0 h-full w-full" src={`https://www.youtube.com/embed/${videoId}`} title={name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen loading="lazy" />
               </div>
             </div>
             <div className="pt-5">

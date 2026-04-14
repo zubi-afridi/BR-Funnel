@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { DownArrow, LeftArrow, RightArrow, WorldIcon } from "../assets";
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -6,28 +6,39 @@ const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const timezones = ["Pacific Time (PST) - 9:00 am", "Mountain Time (MST) - 10:00 am", "Central Time (CST) - 11:00 am", "Eastern Time (EST) - 12:00 pm", "Greenwich Mean Time (GMT) - 5:00 pm", "Central European Time (CET) - 6:00 pm", "Dubai (GST) - 8:00 pm"];
 
 const BookingCalendar = () => {
-  const now = new Date();
-  now.setHours(0, 0, 0, 0);
+  const now = useMemo(() => {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }, []);
+
   const [mo, setMo] = useState(now.getMonth());
   const [yr, setYr] = useState(now.getFullYear());
   const [sel, setSel] = useState<number | null>(null);
   const [open, setOpen] = useState(false);
   const [tz, setTz] = useState(timezones[0]);
 
-  const daysInMo = new Date(yr, mo + 1, 0).getDate();
-  const firstDay = new Date(yr, mo, 1).getDay();
+  const daysInMo = useMemo(() => new Date(yr, mo + 1, 0).getDate(), [yr, mo]);
+  const firstDay = useMemo(() => new Date(yr, mo, 1).getDay(), [yr, mo]);
 
-  const changeMo = (dir: number) => {
-    let next = mo + dir;
-    if (next < 0) { setMo(11); setYr(yr - 1); }
-    else if (next > 11) { setMo(0); setYr(yr + 1); }
-    else setMo(next);
-  };
+  const changeMo = useCallback((dir: number) => {
+    setMo((prevMo) => {
+      const next = prevMo + dir;
+      if (next < 0) {
+        setYr((y) => y - 1);
+        return 11;
+      } else if (next > 11) {
+        setYr((y) => y + 1);
+        return 0;
+      }
+      return next;
+    });
+  }, []);
 
-  const isOff = (d: number) => {
+  const isOff = useCallback((d: number) => {
     const dt = new Date(yr, mo, d);
     return [0, 5, 6].includes(dt.getDay()) || dt < now;
-  };
+  }, [yr, mo, now]);
 
   return (
     <div className="w-full calendar_bg p-2 md:p-7 text-white border border-white/5 shadow-2xl relative">
