@@ -23,7 +23,6 @@ const CTASection = () => (
       viewport={viewportSettings}
       className="mx-auto w-full max-w-[1152px]"
     >
-      {/* Scroll Animation: Header */}
       <motion.div variants={fadeInTop} className="space-y-4">
         <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">
           Ready to Unlock <br />
@@ -35,8 +34,6 @@ const CTASection = () => (
           Let's build a retention system that works 24/7.
         </p>
       </motion.div>
-
-      {/* Scroll Animation: Content Wrapper */}
       <motion.div
         variants={fadeInTop}
         className="flex flex-col lg:flex-row gap-10 mt-10"
@@ -99,8 +96,6 @@ const CTASection = () => (
           <BookingCalendar />
         </div>
       </motion.div>
-
-      {/* Scroll Animation: Bottom Button */}
       <motion.div
         variants={fadeInTop}
         className="flex justify-center sm:justify-end mt-10"

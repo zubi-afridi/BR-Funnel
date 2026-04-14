@@ -36,15 +36,12 @@ const MobileOptimized = () => (
           viewport={viewportSettings}
           className="mx-auto flex w-full max-w-[420px] flex-col justify-center lg:mx-0 lg:min-h-[560px]"
         >
-          {/* Scroll Animation: Badge Icon */}
           <motion.div
             variants={fadeInTop}
             className="mb-7 flex size-[70px] md:size-[90px] lg:size-[113px] rounded-xl md:rounded-2xl lg:rounded-4xl items-center justify-center bg-linear-to-b from-[#4D79FF] to-[#8B4DFF] shadow-[0_18px_42px_rgba(92,100,255,0.38)]"
           >
             <PurchasingIcon className="size-[50px] md:size-[70px] lg:size-[80px]" />
           </motion.div>
-
-          {/* Scroll Animation: Title & Text */}
           <motion.div variants={fadeInTop} className="space-y-4">
             <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">
               Optimized for <br />
@@ -55,8 +52,6 @@ const MobileOptimized = () => (
               thumb-friendly engagement.
             </p>
           </motion.div>
-
-          {/* Scroll Animation: Features List */}
           <motion.div variants={staggerContainer} className="mt-8 space-y-5">
             {features.map(({ title, description }) => (
               <motion.div
@@ -79,8 +74,6 @@ const MobileOptimized = () => (
             ))}
           </motion.div>
         </motion.div>
-
-        {/* Scroll Animation: Right Side Image */}
         <motion.div
           initial="hidden"
           whileInView="visible"

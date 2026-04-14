@@ -46,7 +46,6 @@ const PerformanceStatsSection: React.FC = () => (
       viewport={viewportSettings}
       className="mx-auto max-w-6xl rounded-[24px] border border-white/7 bg-[linear-gradient(90deg,#0d1538_0%,#14213d_45%,#10364a_100%)] px-5 py-8 sm:px-8 sm:py-10 lg:px-10"
     >
-      {/* Scroll Animation: Header */}
       <motion.div
         variants={fadeInTop}
         className="mx-auto max-w-2xl text-center"
@@ -58,8 +57,6 @@ const PerformanceStatsSection: React.FC = () => (
           Real metrics from real campaigns we&apos;ve managed
         </p>
       </motion.div>
-
-      {/* Scroll Animation: Stats Grid */}
       <motion.div
         variants={staggerContainer}
         className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"

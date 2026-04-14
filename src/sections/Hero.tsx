@@ -4,7 +4,11 @@ import Container from "../components/common/Container";
 import { LightLayer, DarkLayer, ArrowIcon } from "../assets/icons";
 
 import { motion } from "framer-motion";
-import { fadeInTop, staggerContainer, viewportSettings } from "../utils/animationVariants";
+import {
+  fadeInTop,
+  staggerContainer,
+  viewportSettings,
+} from "../utils/animationVariants";
 
 const Hero: React.FC = () => {
   const stats = [
@@ -12,6 +16,25 @@ const Hero: React.FC = () => {
     { value: "4.2x", labelTop: "ROI on", labelBottom: "Campaigns" },
     { value: "120+", labelTop: "Funnels", labelBottom: "Built" },
   ];
+
+  const scrollToSection = (id: string, path: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const rect = element.getBoundingClientRect();
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const targetY = rect.top + scrollTop - 100;
+      
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth",
+      });
+      
+      if (window.location.pathname !== path) {
+        window.history.replaceState(null, "", path);
+      }
+    }
+  };
+
   return (
     <section className="relative z-0 pt-28 md:pt-32 lg:pt-48 overflow-hidden">
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
@@ -23,8 +46,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       <Container className="relative z-10 text-center">
-        {/* Scroll Animation: Hero Title */}
-        <motion.h1 
+        <motion.h1
           variants={fadeInTop}
           initial="hidden"
           whileInView="visible"
@@ -34,8 +56,7 @@ const Hero: React.FC = () => {
           Turn Email & SMS Into Your Most <br />
           <span className="text-gradient-blue">Profitable Revenue Channel</span>
         </motion.h1>
-        {/* Scroll Animation: Hero Subtitle */}
-        <motion.p 
+        <motion.p
           variants={fadeInTop}
           initial="hidden"
           whileInView="visible"
@@ -45,9 +66,7 @@ const Hero: React.FC = () => {
           We build high-converting funnels, automated email systems, and SMS
           flows that increase retention and maximize lifetime value.
         </motion.p>
-        
-        {/* Scroll Animation: Hero Stats */}
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -70,9 +89,7 @@ const Hero: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        {/* Scroll Animation: Hero CTA Buttons */}
-        <motion.div 
+        <motion.div
           variants={fadeInTop}
           initial="hidden"
           whileInView="visible"
@@ -81,6 +98,7 @@ const Hero: React.FC = () => {
         >
           <Button
             variant="primary"
+            onClick={() => scrollToSection("contact", "/contact")}
             className="w-full sm:w-auto px-[32px]! py-[16px]! rounded-[14px]! bg-[linear-gradient(90deg,#793FEE_0%,#26FDFE_106.88%)]! gap-[7.734px]! min-h-0! shadow-[0_0_20px_rgba(31,217,249,0.3)] hover:shadow-[0_0_30px_rgba(31,217,249,0.5)] transition-shadow duration-300 text-[16px]! font-semibold! leading-[24px]! text-white! text-center!"
           >
             Book a Free Strategy Call
@@ -88,6 +106,7 @@ const Hero: React.FC = () => {
           </Button>
           <Button
             variant="secondary"
+            onClick={() => scrollToSection("case-studies", "/case-studies")}
             className="w-full sm:w-auto px-10 hover:border-gray-400 transition-colors duration-300 text-[16px]! font-semibold! leading-[24px]! text-white! text-center!"
           >
             View Case Studies

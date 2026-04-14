@@ -55,7 +55,6 @@ const Guarantee = () => {
         className="relative mx-auto w-full max-w-[1152px] px-5 py-12 sm:px-8 sm:py-16 md:px-10 lg:px-[58px] lg:py-[60px]"
       >
         <div className="relative z-10 flex flex-col items-center">
-          {/* Scroll Animation: Icon Badge */}
           <motion.div
             variants={fadeInTop}
             className="relative mb-6 flex flex-col items-center"
@@ -64,8 +63,6 @@ const Guarantee = () => {
               <BadgeIcon className="w-full h-full text-white" />
             </div>
           </motion.div>
-
-          {/* Scroll Animation: Header */}
           <motion.div variants={fadeInTop} className="text-center mb-14">
             <h2 className="text-white font-semibold tracking-[-0.02em] sm:text-2xl lg:text-[32px] text-xl">
               Results Backed by Performance Guarantee
@@ -74,8 +71,6 @@ const Guarantee = () => {
               Your growth is our commitment. We stand behind every campaign.
             </p>
           </motion.div>
-
-          {/* Scroll Animation: Features Grid */}
           <motion.div
             variants={staggerContainer}
             className="mx-auto grid w-full max-w-[1020px] grid-cols-1 gap-6 sm:grid-cols-2"
@@ -100,8 +95,6 @@ const Guarantee = () => {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Scroll Animation: CTA Button */}
           <motion.div variants={fadeInTop} className="mt-12 sm:mt-16">
             <Button
               variant="primary"

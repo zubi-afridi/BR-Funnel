@@ -79,7 +79,6 @@ const TrustedBrandsSection: React.FC = () => (
         </div>
       </div>
       <div className="relative z-10">
-        {/* Scroll Animation: Header */}
         <motion.div variants={fadeInTop} className="text-center">
           <h2 className="text-white font-semibold tracking-[-0.02em] sm:text-2xl lg:text-[32px] text-xl">
             Trusted by Leading Brands
@@ -88,8 +87,6 @@ const TrustedBrandsSection: React.FC = () => (
             Powering growth for companies across industries
           </p>
         </motion.div>
-
-        {/* Scroll Animation: Logo Grid */}
         <motion.div
           variants={staggerContainer}
           className="mx-auto mt-10 grid max-w-[1000px] grid-cols-1 gap-x-7 gap-y-6 sm:grid-cols-2 lg:mt-11 lg:grid-cols-3"
@@ -109,8 +106,6 @@ const TrustedBrandsSection: React.FC = () => (
             </motion.a>
           ))}
         </motion.div>
-
-        {/* Scroll Animation: CTA Button */}
         <motion.div
           variants={fadeInTop}
           className="mt-10 flex justify-center lg:mt-[52px]"

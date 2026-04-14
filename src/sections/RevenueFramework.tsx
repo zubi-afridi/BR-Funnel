@@ -60,7 +60,6 @@ const RevenueFramework = () => (
       viewport={viewportSettings}
       className="relative mx-auto w-full max-w-[1152px]"
     >
-      {/* Scroll Animation: Header */}
       <motion.div variants={fadeInTop} className="text-center mb-12 lg:mb-16">
         <h2 className="text-white font-semibold tracking-tight sm:text-2xl lg:text-[32px] text-xl">
           Our 5-Step Revenue Framework
@@ -76,8 +75,6 @@ const RevenueFramework = () => (
           className="pointer-events-none absolute left-[8%] right-[8%] top-[32px] z-0 hidden h-[2px] bg-[#1a2f4d] lg:block"
           aria-hidden
         />
-
-        {/* Scroll Animation: Steps Timeline */}
         <motion.ul
           variants={staggerContainer}
           className="relative z-10 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-5 lg:gap-6 xl:gap-8"
@@ -106,8 +103,6 @@ const RevenueFramework = () => (
           ))}
         </motion.ul>
       </div>
-
-      {/* Scroll Animation: CTA Button */}
       <motion.div
         variants={fadeInTop}
         className="mt-12 flex justify-center sm:mt-14 lg:mt-16"
